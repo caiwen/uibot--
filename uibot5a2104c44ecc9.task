@@ -1,0 +1,40 @@
+dim arrayRet
+arrayRet = self.Input
+登录到QQ邮箱()
+For Each value In arrayRet
+    Try
+        发送邮件(value[0],value[1],value[2]) 
+    Catch err
+        Log.Error(err)
+        Continue 
+    End Try
+Next
+
+Function 登录到QQ邮箱
+    WebBrowser.Create("ie","https://mail.qq.com",10000,{"bContinueOnError":false,"iDelayAfter":500,"iDelayBefore":200,"sBrowserPath":"","sStartArgs":""}) 
+    #icon("@res:hn4g8910-ai5u-rams-es8p-cbq4jjqe55j5.png")
+    Window.SetActive({"wnd":[{"cls":"IEFrame","title":"登录QQ邮箱 - Internet Explorer","app":"iexplore"}]})
+    #icon("@res:qhe84bqh-vlef-ihvc-7lhf-6hsgjuqh9aua.png")
+    Keyboard.InputText({"html":{"attrMap":{"id":"u","tag":"INPUT"},"index":0,"tagName":"INPUT"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},"312668412",true,10,10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sKeyModifiers":[],"sSimulate":"message"})
+    #icon("@res:l4nka6fa-cb46-8j66-vfbb-2spj6efld0kq.png")
+    Keyboard.InputText({"html":{"attrMap":{"id":"p","tag":"INPUT"},"index":0,"tagName":"INPUT"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},"145536caiwenwen",true,10,10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sKeyModifiers":[],"sSimulate":"message"})
+    #icon("@res:10r1953n-9ush-7bmb-rihp-j92lrcpsgu1l.png")
+    Mouse.Action({"html":{"attrMap":{"id":"login_button","tag":"INPUT"},"index":0,"tagName":"INPUT"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},"left","click",10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"bSetForeground":true,"sCursorPosition":"Center","iCursorOffsetX":0,"iCursorOffsetY":0,"sKeyModifiers":[],"sSimulate":"simulate"})
+    #icon("@res:9707pnqc-48ih-v7a2-okpp-telvv33b2334.png")
+    Window.SetActive({"wnd":[{"cls":"IEFrame","title":"QQ邮箱 - Internet Explorer","app":"iexplore"}]})  
+End Function
+
+Function 发送邮件(收件人,主题,正文)
+    #icon("@res:73aekqe8-l3lq-10bh-6t7k-f1cpuq9l0627.png")
+    Mouse.Action({"html":{"attrMap":{"id":"composebtn","tag":"A"},"index":0,"tagName":"A"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},"left","click",10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"bSetForeground":true,"sCursorPosition":"Center","iCursorOffsetX":0,"iCursorOffsetY":0,"sKeyModifiers":[],"sSimulate":"simulate"})
+    #icon("@res:o9ln6vdj-1q57-g8i4-vmoe-h5d76mqcuvsl.png")
+    Keyboard.InputText({"html":{"attrMap":{"css-selector":"#toAreaCtrl > div.addr_text > input"}},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},收件人,true,10,10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sKeyModifiers":[],"sSimulate":"message"})
+    #icon("@res:s5vfvm03-6i7m-co1k-81dk-ht3jcijj4raq.png")
+    Keyboard.InputText({"html":{"attrMap":{"id":"subject","parentid":"sendtimepadding","tag":"INPUT"},"index":0,"tagName":"INPUT"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},主题,true,10,10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sKeyModifiers":[],"sSimulate":"message"})
+    Keyboard.InputText({"html":{"attrMap":{"tag":"BODY"},"index":8,"tagName":"BODY"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},正文,true,10,10000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sKeyModifiers":[],"sSimulate":"message"})
+    #icon("@res:khgqoik2-h3g5-42ji-nkst-ag14sp66hked.png")
+    Mouse.Action({"html":{"attrMap":{"name":"sendbtn","tag":"A"},"index":1,"tagName":"A"},"wnd":[{"app":"iexplore","cls":"IEFrame","title":"*"},{"cls":"Internet Explorer_Server"}]},"left","click",10000,{"bContinueOnError":false,"iDelayAfter":1000,"iDelayBefore":200,"bSetForeground":true,"sCursorPosition":"Center","iCursorOffsetX":0,"iCursorOffsetY":0,"sKeyModifiers":[],"sSimulate":"simulate"})
+    Delay(3000)
+End Function
+
+

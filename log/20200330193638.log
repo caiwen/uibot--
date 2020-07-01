@@ -1,0 +1,7 @@
+[2020/3/30 19:37:29][ERROR][uibot5a2104c44ecc9.task][8] {
+   "File" : "uibot5a2104c44ecc9.task",
+   "Line" : 33,
+   "Message" : "模块调用出错：调用的目标发生了异常。\nException in Keyboard.InputText,元素未找到"
+}
+
+[2020/3/30 19:37:40][INFO][][0] 运行已结束
