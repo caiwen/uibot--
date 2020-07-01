@@ -1,0 +1,4 @@
+[2020/3/31 16:10:02][ERROR][uibot38552e8179a77c.task][5] 运行发生错误，流程中止
+错误信息如下：
+uibot38552e8179a77c.task 第5行：Python调用出错：查询数据发生异常
+'>' not supported between instances of 'str' and 'int'

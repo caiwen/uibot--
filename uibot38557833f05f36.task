@@ -1,0 +1,40 @@
+dim objExcelWorkBook = ""
+dim arrayRet = ""
+dim sRet = ""
+dim rows = 0
+try 
+    objExcelWorkBook = Excel.OpenExcel(@res"长沙飞往北京的航班信息.xlsx",true)
+    rows = Excel.GetRowsCount(objExcelWorkBook,"Sheet1")
+    TracePrint(rows)
+    arrayRet = Excel.ReadRange(objExcelWorkBook,"Sheet1",'A2:F'&rows)
+catch err
+    Dialog.MsgBox("打开文件失败","UiBot","0","1",0)
+    Log.Error(err)
+    exit()
+end try
+查找用户输入的航班信息(arrayRet)
+Function 查找用户输入的航班信息(表格数据)
+    //TracePrint(arrayRet)
+    sRet = Dialog.InputBox("选择你要定的航班序号","UiBot","",true)
+    sRet = CInt(sRet)
+    dim 查询结果 = false
+    For Each value In arrayRet
+        If sRet = value[0]
+            Dialog.MsgBox("您选择的机票信息如下\n航空公司："&value[1]&"\n航班号："&value[2]&"\n出发时间："&Time.Format(value[3],"hh:mm")&"\n到达时间："&Time.Format(value[4],"hh:mm")&"\n价格："&value[5],"UiBot","0","1",0)
+            查询结果 = true
+            Break
+        End If
+    Next
+    If 查询结果 = false
+        dim rt = Dialog.MsgBox("您输入的编号有误！请重新输入","UiBot",5,"1",0)
+        If rt = 1
+            查找用户输入的航班信息(表格数据)
+        End If
+    End If
+End Function
+
+
+
+
+
+

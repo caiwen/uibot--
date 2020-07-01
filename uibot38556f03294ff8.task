@@ -1,0 +1,25 @@
+dim objDatatable = ""
+dim objExcelWorkBook = ""
+dim arrayData = ""
+arrayData = self.Input
+dim newData = []
+dim i = 1
+For Each value In arrayData
+    dim sRet = ""
+dim arr = [i,value[0],value[0]&value[1],CStr(value[2]),CStr(value[3]),Replace(value[4],"¥","",false)]
+    push(newData,arr)
+    i = i + 1
+Next
+newData = Unshift(newData,['序号','航空公司','航班号','出发时间','到达时间','价格'])
+Try
+    objExcelWorkBook = Excel.OpenExcel(@res"长沙飞往北京的航班信息.xlsx",false)
+    Excel.WriteRange(objExcelWorkBook,"Sheet1","A1",newData,false)
+    Excel.Save(objExcelWorkBook)   
+Catch err
+    Dialog.MsgBox("保存数据失败","UiBot","0","1",0)
+    Log.Error(err)
+    exit()
+End Try
+Excel.CloseExcel(objExcelWorkBook,true)
+
+

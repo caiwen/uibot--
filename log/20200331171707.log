@@ -1,0 +1,3 @@
+[2020/3/31 17:17:10][ERROR][uibot38552e8179a77c.task][5] 运行发生错误，流程中止
+错误信息如下：
+uibot38552e8179a77c.task 第5行：Python调用出错：OCR ScreenOCR Error baidu cloud return error: {'error_code': 14, 'error_msg': 'IAM Certification failed'}

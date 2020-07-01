@@ -1,0 +1,4 @@
+dim iRet
+iRet = Dialog.MsgBox("本示例为UiBot中级认证实践题。\n1、本示例使用IE浏览器抓取数据，请您确保已安装了IE浏览器 \n2、本示例会使用Excel表格保存和读取数据，请您确保电脑安装Office2007及其以上或者WPS2016及其以上","UiBot",5,"1",0)
+Return iRet
+
